@@ -32,13 +32,13 @@ void ChromePlus()
     MakeGreen();
 
     // 标签页，书签，地址栏增强
-    TabBookmark();
+    //TabBookmark();
 
     // 给pak文件打补丁
     PakPatch();
 
     // 老板键
-    Bosskey();
+    //Bosskey();
 }
 
 void ChromePlusCommand(LPWSTR param)

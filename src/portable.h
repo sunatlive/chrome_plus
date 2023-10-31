@@ -79,6 +79,7 @@ std::wstring GetCommand(LPWSTR param)
         {
             args.push_back(L"--portable");
 
+            if (!wcsstr(param, L"--user-data-dir="))
             {
                 auto userdata = GetUserDataDir();
 
@@ -86,16 +87,21 @@ std::wstring GetCommand(LPWSTR param)
                 wsprintf(temp, L"--user-data-dir=%s", userdata.c_str());
                 args.push_back(temp);
             }
-            // if (IsNeedPortable())
-            {
-                auto diskcache = GetDiskCacheDir();
 
-                wchar_t temp[MAX_PATH];
-                wsprintf(temp, L"--disk-cache-dir=%s", diskcache.c_str());
-                args.push_back(temp);
-            }
+            // if (IsNeedPortable())
+            // {
+            //     auto diskcache = GetDiskCacheDir();
+
+            //     wchar_t temp[MAX_PATH];
+            //     wsprintf(temp, L"--disk-cache-dir=%s", diskcache.c_str());
+            //     args.push_back(temp);
+            // }
 
             args.push_back(L"--disable-features=RendererCodeIntegrity");
+            args.push_back(L"--no-first-run");
+            args.push_back(L"--disable-logging");
+            args.push_back(L"--no-report-upload");
+            args.push_back(L"--no-default-browser-check");
 
             // 获取命令行，然后追加参数
             // 截取拆分每个--开头的参数，然后多次 args.push_back
