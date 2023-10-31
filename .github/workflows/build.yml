@@ -1,4 +1,4 @@
-name: Automatically Build Chrome++
+name: Automatically Build Chrome++ Lite
 
 on:
   workflow_dispatch:
@@ -8,7 +8,6 @@ jobs:
     strategy:
       matrix:
         include: [
-            { name: Chrome++_x86, arch: x86 },
             { name: Chrome++_x64, arch: x64 },
         ]
 
@@ -40,9 +39,3 @@ jobs:
       with:
         name: ${{ matrix.name }}
         path: build/release
-
-    - name: Upload INI
-      uses: actions/upload-artifact@v3.1.3
-      with:
-        name: chrome++.ini
-        path: src/chrome++.ini
