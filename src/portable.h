@@ -98,6 +98,7 @@ std::wstring GetCommand(LPWSTR param)
             // }
 
             args.push_back(L"--disable-features=RendererCodeIntegrity");
+            args.push_back(L"--disable-features=Crashpad");
             args.push_back(L"--no-first-run");
             args.push_back(L"--disable-logging");
             args.push_back(L"--no-report-upload");
